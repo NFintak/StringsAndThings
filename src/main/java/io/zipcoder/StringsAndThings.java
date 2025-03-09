@@ -24,6 +24,7 @@ public class StringsAndThings {
             }
         }
         return hasYZ;
+        //double check the requirements for the method
         //return null;
     }
 
@@ -51,16 +52,18 @@ public class StringsAndThings {
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
         int counter = 0;
+        input = input.replace("is", " is ");
+        input = input.replace("not", " not ");
         String[] inputWords = input.split(" ");
         for (String word : inputWords) {
             if (word.contains("is")) {
-                counter--;
-            }
-            if (word.contains("not")) {
                 counter++;
             }
+            if (word.contains("not")) {
+                counter--;
+            }
         }
-        return counter == 0;
+        return counter == 0; //counter == 0;
         //return null;
     }
 
