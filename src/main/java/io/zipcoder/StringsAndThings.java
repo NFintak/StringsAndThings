@@ -50,7 +50,18 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        int counter = 0;
+        String[] inputWords = input.split(" ");
+        for (String word : inputWords) {
+            if (word.contains("is")) {
+                counter--;
+            }
+            if (word.contains("not")) {
+                counter++;
+            }
+        }
+        return counter == 0;
+        //return null;
     }
 
     /**
@@ -61,7 +72,18 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        int counter = 0;
+        for (int i = 1; i <= input.length() - 1; i++) {
+            char letterBefore = input.charAt(i - 1);
+            if (input.charAt(i) == 'g' && letterBefore == 'g') {
+                counter++;
+            }
+            if (input.charAt(i) == 'g' && letterBefore != 'g') {
+                counter--;
+            }
+        }
+        return counter == 0;
+        //return null;
     }
 
 
@@ -73,6 +95,15 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int counter = 0;
+        for (int i = 2; i <= input.length() - 1; i++) {
+            char oneLetterBefore = input.charAt(i - 1);
+            char twoLettersBefore = input.charAt(i - 2);
+            if (input.charAt(i) == oneLetterBefore && input.charAt(i) == twoLettersBefore) {
+                counter++;
+            }
+        }
+        return counter;
+        //return null;
     }
 }
